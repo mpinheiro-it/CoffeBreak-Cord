@@ -25,7 +25,7 @@ import appConfig from '../config.json';
   export default function PaginaInicial() {
     //const username = 'starbucks';
     const [username, setUsername] = React.useState('mpinheiro-it');
-    const [caminhoFoto, setCaminhoFoto] = React.useState(`https://github.com/mpinheiro-it.png`);
+    const [caminhoFoto, setCaminhoFoto] = React.useState(`https://github.com/starbucks.png`);
     const roteamento = useRouter();
     
     
@@ -76,7 +76,7 @@ import appConfig from '../config.json';
                 function (infosDoEvento) {
                   infosDoEvento.preventDefault(); //nao deixa pagina recarregar
 
-                  roteamento.push('/chat'); //usando useRouter do Next
+                  roteamento.push(`/chat?username=${username}`); //usando useRouter do Next
 
                   // window.location.href = '/chat';
                 }}
