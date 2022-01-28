@@ -49,8 +49,7 @@ import appConfig from '../config.json';
       <>        
         <Box
           styleSheet={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-           
+            display: 'flex', alignItems: 'center', justifyContent: 'center',           
             backgroundImage: 'url(https://www.teahub.io/photos/full/234-2342897_starbucks-free-powerpoint-image-starbuck-background.jpg)',
             backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
           }}
