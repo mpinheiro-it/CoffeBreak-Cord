@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
 
+
   function Titulo(props) {
     const Tag = props.tag || 'h1';
     return (
@@ -24,29 +25,23 @@ import appConfig from '../config.json';
 
   export default function PaginaInicial() {
     //const username = 'starbucks';
-    const [username, setUsername] = React.useState('mpinheiro-it');
+    const [username, setUsername] = React.useState('');
     const [caminhoFoto, setCaminhoFoto] = React.useState(`https://github.com/starbucks.png`);
     const roteamento = useRouter();
     
     
-    /* Para brincar com os dados da API do GitHub depois
-    
-    const gitHubData = fetch(`https://api.github.com/users/${username}`)
-        .then((response) => response.json())
-        .then((data) => {
-          return data
-        })
+    /* Para brincar com os dados da API do GitHub depois*/
 
-    const getUserData = async() => {
-      const userData = await gitHubData;
-      console.log(userData.name + " "  + userData.location + " "  + userData.blog);
-      
-      }*/
-
-
+    // const dadosGitHub = fetch(`https://api.github.com/users/${username}`)
+    //   .then(async (respostaDoServidor) => {
+    //     const respostaEsperada = await respostaDoServidor.json();
+    //     console.log(respostaEsperada)
+    //   })      
+ 
 
     return (
       <>        
+     
         <Box
           styleSheet={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',           
@@ -76,8 +71,9 @@ import appConfig from '../config.json';
                 function (infosDoEvento) {
                   infosDoEvento.preventDefault(); //nao deixa pagina recarregar
 
-                  roteamento.push(`/chat?username=${username}`); //usando useRouter do Next
-
+                  if(username.length > 2 && username.indexOf(" ") == -1 ){
+                    roteamento.push(`/chat?username=${username}`); //usando useRouter do Next
+                  }
                   // window.location.href = '/chat';
                 }}
               styleSheet={{
@@ -91,6 +87,7 @@ import appConfig from '../config.json';
               </Text>
   
               <TextField
+                placeholder='GitHub Account'
                 value={username}
                 onChange={function (event) {                  
                   // Onde ta o valor?
@@ -100,18 +97,18 @@ import appConfig from '../config.json';
                   // através do React e avise quem precisa
                   setUsername(valor);
                  
-                  if (valor.length > 2) {                    
+                  if (valor.length > 2 && valor.indexOf(" ") == -1) {                    
                     setCaminhoFoto(`https://github.com/${valor}.png`);                                          
                   } else {
                     setCaminhoFoto(`https://github.com/starbucks.png`);  
                   }                       
                 }}
-                fullWidth
+                fullWidth                
                 textFieldColors={{
                   neutral: {
-                    textColor: appConfig.theme.colors.neutrals[200],
+                    textColor: appConfig.theme.colors.neutrals[300],
                     mainColor: appConfig.theme.colors.neutrals[900],
-                    mainColorHighlight: appConfig.theme.colors.primary[500],
+                   mainColorHighlight: appConfig.theme.colors.primary[500],
                     backgroundColor: appConfig.theme.colors.neutrals[800],
                   },
                 }}
@@ -164,7 +161,14 @@ import appConfig from '../config.json';
                   borderRadius: '1000px'
                 }}
               >
-                {username}
+                
+                  {(!username) //if ternario
+                        ? (
+                          "GitHub Account"
+                        )
+                        : (
+                          username
+                        )}
               </Text>
             </Box>
             {/* Photo Area */}

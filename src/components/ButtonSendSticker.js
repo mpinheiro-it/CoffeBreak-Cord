@@ -28,7 +28,7 @@ export function ButtonSendSticker(props) {
           hover: {
             filter: 'grayscale(0)',
           }
-        }}
+        }} 
         label="😋"
         onClick={() => setOpenState(!isOpen)}
       />
