@@ -1,5 +1,9 @@
 # :coffee: CoffeCord
 
+## 📷 Fotos do projeto
+<img src="https://github.com/mpinheiro-it/CoffeCord/blob/main/home.png" width="600px">
+<img src="https://github.com/mpinheiro-it/CoffeCord/blob/main/chat.png" width="600px">
+
 ## :books: User Stories
 - O usuário deve fazer login com seu username do GitHub
 - Uma imagem de loading deve ser exibida enquanto a página de chat não carrega
