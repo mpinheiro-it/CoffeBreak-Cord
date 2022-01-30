@@ -1,6 +1,6 @@
-# CoffeCord
+# :coffee: CoffeCord
 
-## User Stories
+## :books: User Stories
 - O usuário deve fazer login com seu username do GitHub
 - Uma imagem de loading deve ser exibida enquanto a página de chat não carrega
 - O cabeçalho deve exibir a foto e username da pessoa que fez login
@@ -13,7 +13,7 @@
 - O usuário pode fazer um logoff
 
 
-## Tecnologias Utilizadas
+## :rocket: Tecnologias Utilizadas
 
 - React JS
 - Next JS
