@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Button, Text, Image } from '@skynexui/components';
 
 
-export default function Header(props) {
+export function Header(props) {
     return (
         <>
             <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >

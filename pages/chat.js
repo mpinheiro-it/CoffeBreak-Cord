@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 import { createClient } from '@supabase/supabase-js';
 import { ButtonSendSticker } from '../src/components/ButtonSendSticker';
-import { Header } from './header';
+import { Header } from '../src/components/header';
 import swal from 'sweetalert';
 
 
