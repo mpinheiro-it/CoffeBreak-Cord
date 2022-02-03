@@ -40,7 +40,7 @@ import appConfig from '../config.json';
         .then(async (respostaDoServidor) => {
 
             let userData = await respostaDoServidor.json();
-            console.log(userData);
+            //console.log(userData);
             const userRepos = userData.public_repos;
             const userFollowers = userData.followers;
             const personName = userData.name;            
