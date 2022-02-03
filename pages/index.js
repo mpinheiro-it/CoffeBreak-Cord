@@ -1,4 +1,4 @@
-import { Box, Button, Text, TextField, Image } from '@skynexui/components';
+import { Box, Button, Text, TextField, Image, Icon } from '@skynexui/components';
 import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
@@ -27,17 +27,28 @@ import appConfig from '../config.json';
     //const username = 'starbucks';
     const [username, setUsername] = React.useState('');
     const [caminhoFoto, setCaminhoFoto] = React.useState(`https://github.com/starbucks.png`);
+    const [userRepos, setUserRepos] = React.useState();
+    const [userFollowers, setUserFollowers] = React.useState();
+    const [personName, setPersonName] = React.useState();
     const roteamento = useRouter();
     
     
-    /* Para brincar com os dados da API do GitHub depois*/
-
-    // const dadosGitHub = fetch(`https://api.github.com/users/${username}`)
-    //   .then(async (respostaDoServidor) => {
-    //     const respostaEsperada = await respostaDoServidor.json();
-    //     console.log(respostaEsperada)
-    //   })      
+    /* Para brincar com os dados da API do GitHub depois*/ 
  
+    React.useEffect(() => {
+      fetch(`https://api.github.com/users/${username}`)
+        .then(async (respostaDoServidor) => {
+
+            let userData = await respostaDoServidor.json();
+            console.log(userData);
+            const userRepos = userData.public_repos;
+            const userFollowers = userData.followers;
+            const personName = userData.name;            
+            setUserRepos(userRepos);
+            setUserFollowers(userFollowers);
+            setPersonName(personName);
+        });
+    });
 
     return (
       <>        
@@ -167,9 +178,48 @@ import appConfig from '../config.json';
                           "GitHub Account"
                         )
                         : (
-                          username
+                          (!personName) ? username : personName
                         )}
               </Text>
+
+                           
+              <Text
+                variant="body4"
+                styleSheet={{
+                  color: appConfig.theme.colors.neutrals[200],
+                  backgroundColor: appConfig.theme.colors.neutrals[900],
+                  padding: '3px 10px',
+                  borderRadius: '1000px',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}>
+
+                <Icon
+                  label="Icon Component"
+                  name="FaUserFriends"
+                  size={"2.5ch"}
+                  styleSheet={{
+                    display: 'inline-block',
+                    marginRight: '5px'
+                  
+                  }}
+                  />
+                
+                 <span>{userFollowers} &nbsp;</span>
+
+
+                 <Icon
+                  label="Icon Component"
+                  name="FaCode"
+                  size={"2.5ch"}
+                  styleSheet={{
+                    display: 'inline-block',
+                    marginRight: '5px'}}
+                  />
+                 <span>{userRepos}</span>
+              </Text>
+              
             </Box>
             {/* Photo Area */}
           </Box>
