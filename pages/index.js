@@ -83,7 +83,7 @@ import appConfig from '../config.json';
                   infosDoEvento.preventDefault(); //nao deixa pagina recarregar
 
                   if(username.length > 2 && username.indexOf(" ") == -1 ){
-                    roteamento.push(`/chat?username=${username}`); //usando useRouter do Next
+                    roteamento.push(`/chat?username=${username}&personName=${personName}`); //usando useRouter do Next
                   }
                   // window.location.href = '/chat';
                 }}

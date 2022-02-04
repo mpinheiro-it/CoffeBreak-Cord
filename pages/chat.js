@@ -29,6 +29,7 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
   export default function ChatPage() {
     const roteamento = useRouter();
     const usuarioLogado = roteamento.query.username;
+    const personName = roteamento.query.personName;
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
     const [isLoaded, setIsLoaded] = React.useState(false);   
@@ -156,7 +157,7 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
                         padding: '32px',
                     }}
                 >
-                    <Header usuarioLogado={usuarioLogado} />
+                    <Header usuarioLogado={usuarioLogado} personName={personName} />
                     <Box
                         styleSheet={{
                             position: 'relative',

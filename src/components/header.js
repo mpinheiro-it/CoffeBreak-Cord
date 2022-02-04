@@ -2,9 +2,11 @@ import React from 'react';
 import { Box, Button, Text, Image } from '@skynexui/components';
 
 
-export function Header(props) {
+export function Header(props) {    
+    const firstName = props.personName.split(' ')[0]
+    
     return (
-        <>
+        <>        
             <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
                 
                 <Text variant='heading5' styleSheet={{
@@ -22,7 +24,7 @@ export function Header(props) {
                         src={`https://github.com/${props.usuarioLogado}.png`}
                     />
 
-                    Bem Vindo {props.usuarioLogado}!
+                    Bem Vindo {(props.personName == 'null') ? "" : firstName}!
                 </Text>
                 <Button
                     variant='tertiary'
