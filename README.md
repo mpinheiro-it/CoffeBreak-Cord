@@ -18,7 +18,7 @@
 - The user can log off
 
 
-## :rocket: Tecnologias Utilizadas
+## :rocket: Technologies Used
 
 - React JS
 - Next JS
